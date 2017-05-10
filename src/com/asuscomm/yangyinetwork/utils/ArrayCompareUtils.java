@@ -34,7 +34,7 @@ public class ArrayCompareUtils {
                     before[i][j] = after[i][j];
                 }
             }
-            log.info("ArrayCompareUtils/compare: count=[{}]",count);
+//            log.info("ArrayCompareUtils/compare: count=[{}]",count);
         } else {
             before = new int[row][col];
             for (int i = 0; i < row; i++) {

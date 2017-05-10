@@ -25,7 +25,7 @@ public abstract class BaseTree {
     protected BaseTree mother;
     protected boolean isRoot;
     protected int stoneType;
-    private boolean extended;
+    protected boolean extended;
 
     public BaseTree(int[][] board, int stoneType) {
         this.board = board;
@@ -41,6 +41,17 @@ public abstract class BaseTree {
         this.stoneType = stoneType;
         this.children = new ArrayList<Node>();
         this.extended = false;
+    }
+
+    protected BaseTree getRoot() {
+        BaseTree root = this;
+        while(true) {
+            if (!root.isRoot) {
+                root = root.mother;
+            } else {
+                return root;
+            }
+        }
     }
 
     abstract public int[][] getBoard();
@@ -60,7 +71,7 @@ public abstract class BaseTree {
         return extended;
     }
 
-    private int nextTurn() {
+    protected int nextTurn() {
         return ENEMY_STONETYPE(this.stoneType);
     }
 
@@ -78,7 +89,6 @@ public abstract class BaseTree {
                 node.extend(targetDepth-1);
             }
         }
-
     }
 
     public List<Node> getChildren() {
@@ -96,5 +106,9 @@ public abstract class BaseTree {
                 ", stoneType=" + stoneType +
                 ", extended=" + extended +
                 '}';
+    }
+
+    public int getStoneType() {
+        return stoneType;
     }
 }

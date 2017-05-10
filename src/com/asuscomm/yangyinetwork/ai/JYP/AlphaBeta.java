@@ -54,6 +54,8 @@ public class AlphaBeta {
         }
     }
 
+
+
     private static double max(double prevone, double newone) {
         if(prevone > newone) {
             return prevone;
