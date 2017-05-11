@@ -6,12 +6,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.NONE_STONE;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.WALL_STONE;
+
 /**
  * Created by jaeyoung on 2017. 5. 10..
  */
 @Slf4j
 public class ArrayCompareUtils {
     public static int[][] before;
+
+    public static boolean isEmptyBoard(int[][] board) {
+        int row=board.length, col=board[0].length;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if(!(board[i][j] == NONE_STONE || board[i][j] == WALL_STONE)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+
     public static void boardCompare(int[][] board) {
         int row=board.length, col=board[0].length;
         int[][] after = new int[row][col];

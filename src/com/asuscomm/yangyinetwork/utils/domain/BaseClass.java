@@ -21,6 +21,7 @@ public abstract class BaseClass implements Ai, Runnable {
     private int[][] currentOptimal;
     protected int[][] board;
     protected Thread findSolThread;
+    protected int remainStones;
 
     protected void tic() {
         this.startTime = System.currentTimeMillis();
@@ -32,10 +33,11 @@ public abstract class BaseClass implements Ai, Runnable {
         return toc;
     }
 
-    public void findSolution(int[][] board, Ai.OnSolutionListener listener) {
+    public void findSolution(int[][] board, int remainStones, Ai.OnSolutionListener listener) {
         this.board = board;
         setSolution(choosePairRandomlyInBoard(board));
         tic();
+        this.remainStones = remainStones;
         this.findSolThread = new Thread(this);
         this.findSolThread.start();
         while(true) {

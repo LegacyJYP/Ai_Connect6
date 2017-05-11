@@ -1,6 +1,7 @@
 package com.asuscomm.yangyinetwork.ai.JYP;
 
 
+import com.asuscomm.yangyinetwork.ai.Ai;
 import com.asuscomm.yangyinetwork.game.StonePoint;
 import com.asuscomm.yangyinetwork.utils.domain.BaseClass;
 import com.asuscomm.yangyinetwork.utils.domain.Node;
@@ -21,15 +22,21 @@ public class AiJYPImpl extends BaseClass{
     private boolean terminate;
     final int MAXIMUM_DEPTH = 100;
     final double EXTEND_TRHESH_EVAL = 0.1;
+    private int stoneType;
+
+    public AiJYPImpl() {
+    }
+
+    public void setStoneType(int stoneType) {
+        this.stoneType = stoneType;
+    }
 
     @Override
     public void run() {
         {
             log.info("AiJYPImpl/run: ");
 
-            int stoneType = BLACK_STONE;
-            int remainStones = 2;
-            if (remainStones == 1) {
+            if (this.remainStones == 1) {
                 setSolution(new int[][]{chooseRandomlyInBoard(board)});
             } else {
                 Node rootTree = new Node(board, stoneType);

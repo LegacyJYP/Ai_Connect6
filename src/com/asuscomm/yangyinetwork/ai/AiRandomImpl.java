@@ -10,9 +10,9 @@ import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInSt
 /**
  * Created by jaeyoung on 2017. 5. 7..
  */
-public class AiRandomImpl implements Ai {
-    public void findSolution(int[][] board, OnSolutionListener listener) {
-        int[] solution = chooseRandomlyInBoard(board);
-        listener.onSolution(new int[][]{solution});
-    }
-}
+//public class AiRandomImpl implements Ai {
+//    public void findSolution(int[][] board, OnSolutionListener listener) {
+//        int[] solution = chooseRandomlyInBoard(board);
+//        listener.onSolution(new int[][]{solution});
+//    }
+//}

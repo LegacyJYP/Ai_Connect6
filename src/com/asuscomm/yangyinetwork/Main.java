@@ -10,6 +10,16 @@ import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePoint;
  */
 public class Main {
     public static void main(String[] args) {
+        String[] boardString = new String[]{
+                "200000",
+                "200000",
+                "200000",
+                "200000",
+                "200000",
+                "200000",
+                "200000",
+        };
+
         int[][] board = new int[][]{
                 {2,0,0,0,0,1,2,0,0,0},
                 {1,2,0,0,0,1,2,0,0,0},
@@ -26,7 +36,7 @@ public class Main {
 //        System.out.println();
 //        Ai ai = new AiRandomImpl();
         Ai ai = new AiJYPImpl();
-        ai.findSolution(board, new Ai.OnSolutionListener() {
+        ai.findSolution(board, 2, new Ai.OnSolutionListener() {
             public void onSolution(int[][] stonePointPair) {
                 printStonePoint(stonePointPair[0]);
                 printStonePoint(stonePointPair[1]);

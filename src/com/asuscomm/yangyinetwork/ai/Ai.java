@@ -7,5 +7,6 @@ public interface Ai {
     interface OnSolutionListener {
         void onSolution(int[][] stonePoint);
     }
-    void findSolution(int[][] board, OnSolutionListener listener);
+    void findSolution(int[][] board, int remainStones, OnSolutionListener listener);
+    void setStoneType(int stoneType);
 }
