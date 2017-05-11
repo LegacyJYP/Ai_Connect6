@@ -3,6 +3,8 @@ package com.asuscomm.yangyinetwork;
 import com.asuscomm.yangyinetwork.ai.Ai;
 import com.asuscomm.yangyinetwork.ai.JYP.AiJYPImpl;
 
+import static com.asuscomm.yangyinetwork.utils.BoardUtils.string2board;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printBoard;
 import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePoint;
 
 /**
@@ -19,6 +21,7 @@ public class Main {
                 "200000",
                 "200000",
         };
+        printBoard(string2board(boardString));
 
         int[][] board = new int[][]{
                 {2,0,0,0,0,1,2,0,0,0},
