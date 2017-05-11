@@ -1,7 +1,5 @@
 package com.asuscomm.yangyinetwork.utils;
 
-import com.asuscomm.yangyinetwork.utils.domain.Node;
-
 import java.util.ArrayList;
 import java.util.List;
 

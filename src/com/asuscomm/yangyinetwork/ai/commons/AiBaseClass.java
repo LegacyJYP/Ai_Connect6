@@ -1,6 +1,5 @@
-package com.asuscomm.yangyinetwork.utils.domain;
+package com.asuscomm.yangyinetwork.ai.commons;
 
-import com.asuscomm.yangyinetwork.ai.Ai;
 import com.asuscomm.yangyinetwork.game.StonePoint;
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,17 +9,22 @@ import java.util.Arrays;
 import static com.asuscomm.yangyinetwork.consts.GAME_RULE.REAL_TIME_LIMITS;
 import static com.asuscomm.yangyinetwork.consts.GAME_RULE.TIMELIMIT_CHECK_PERIOD;
 import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.choosePairRandomlyInBoard;
-import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInBoard;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printBoardWithNextStones;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePointPairs;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..
  */
 @Slf4j
-public abstract class BaseClass implements Ai, Runnable {
+public abstract class AiBaseClass implements Ai, Runnable {
     private long startTime;
-    private int[][] currentOptimal;
+    protected int[][] currentOptimal;
+
+    protected int stoneType;
     protected int[][] board;
     protected Thread findSolThread;
+
+    protected boolean terminate;
     protected int remainStones;
 
     protected void tic() {
@@ -29,7 +33,7 @@ public abstract class BaseClass implements Ai, Runnable {
 
     protected long toc() {
         long toc = System.currentTimeMillis() - this.startTime;
-        log.debug("BaseClass/toc: [{}]",toc);
+        log.debug("AiBaseClass/toc: [{}]",toc);
         return toc;
     }
 
@@ -42,7 +46,7 @@ public abstract class BaseClass implements Ai, Runnable {
         this.findSolThread.start();
         while(true) {
             if(toc()> REAL_TIME_LIMITS) {
-                log.info("BaseClass/findSolution: REAL_TIME_LIMITS");
+                log.info("AiBaseClass/findSolution: REAL_TIME_LIMITS");
                 terminate();
                 break;
             }
@@ -61,12 +65,18 @@ public abstract class BaseClass implements Ai, Runnable {
 
     abstract public void run();
 
+    public void setStoneType(int stoneType) {
+        this.stoneType = stoneType;
+    }
+
     protected void setSolution(int[][] stonePointPair) {
+        printBoardWithNextStones(board, stonePointPair, stoneType);
+        printStonePointPairs(stonePointPair);
         this.currentOptimal = stonePointPair;
     }
 
     protected void setSolution(StonePoint[] stonePointPair) {
-        log.info("BaseClass/setSolution: [{}], [{}]",""+ Arrays.toString(stonePointPair[0].getStonePoints()), ""+Arrays.toString(stonePointPair[1].getStonePoints()));
+        log.info("AiBaseClass/setSolution: [{}], [{}]",""+ Arrays.toString(stonePointPair[0].getStonePoints()), ""+Arrays.toString(stonePointPair[1].getStonePoints()));
         this.setSolution(new int[][] { stonePointPair[0].getStonePoints(),
                 stonePointPair[1].getStonePoints() } );
     }

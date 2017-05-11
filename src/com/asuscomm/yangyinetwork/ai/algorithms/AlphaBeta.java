@@ -1,6 +1,9 @@
-package com.asuscomm.yangyinetwork.ai.JYP;
+package com.asuscomm.yangyinetwork.ai.algorithms;
 
-import com.asuscomm.yangyinetwork.utils.domain.Node;
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.TreeForAlphabeta;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
 
 import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
 import static com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
@@ -8,20 +11,24 @@ import static com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
 /**
  * Created by jaeyoung on 2017. 5. 10..
  */
+@Slf4j
 public class AlphaBeta {
-    public static Node alphabeta(Node node, int depth,
-                                  double alpha, double beta, boolean maximizingPlayer, int maximumDepth) {
+    public static TreeForAlphabeta alphabeta(TreeForAlphabeta node, int depth,
+                                             double alpha, double beta, boolean maximizingPlayer, int maximumDepth) {
         double v = 0;
-        Node bestNode = node;
+        TreeForAlphabeta bestNode = node;
         if(node.getEval() >= GAMEEND || node.getEval() <= (-GAMEEND) || node.getChildrenSize() == 0 || depth == maximumDepth) {
+            log.info("AlphaBeta/alphabeta: GAMEEND OR MAXIMUMDEPTH [{}]",bestNode.getEval());
             return bestNode;
         }
 
         if (maximizingPlayer) {
             v = -INF;
-            for (Node child:
-                    node.getChildren()) {
+            List<?> children = node.getChildren();
+            for (int i = 0; i < children.size(); i++) {
+                TreeForAlphabeta child = (TreeForAlphabeta) children.get(i);
                 double w = alphabeta( child, depth + 1, alpha, beta, false, maximumDepth).getEval();
+
                 if (v < w) {
                     bestNode = child;
                     v = w;
@@ -35,8 +42,9 @@ public class AlphaBeta {
             return bestNode;
         } else {
             v = INF;
-            for (Node child:
-                    node.getChildren()) {
+            List<?> children = node.getChildren();
+            for (int i = 0; i < children.size(); i++) {
+                TreeForAlphabeta child = (TreeForAlphabeta) children.get(i);
                 double w = -(alphabeta( child, depth + 1, alpha, beta, true, maximumDepth).getEval());
                 if (v > w) {
                     bestNode = child;

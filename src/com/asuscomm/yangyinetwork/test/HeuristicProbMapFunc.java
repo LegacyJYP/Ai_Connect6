@@ -2,11 +2,15 @@ package com.asuscomm.yangyinetwork.test;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
+
 import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.eval;
-import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.policy;
+import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.makeProbmapWithStonePairs;
+import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.nextStonePairsByPolicy;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.BLACK_STONE;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.WHITE_STONE;
 import static com.asuscomm.yangyinetwork.utils.PrintUtils.printBoard;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printProbmap;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..
@@ -20,7 +24,10 @@ public class HeuristicProbMapFunc {
     }
 
     public static void testProbMap(int[][] board) {
-        policy(board, BLACK_STONE);
+        List<int[][]> nextStonePairs = nextStonePairsByPolicy(board, BLACK_STONE);
+        double[][] probmap = makeProbmapWithStonePairs(board, nextStonePairs);
+        log.info("Policy/policy: printProbmap");
+        printProbmap(probmap);
 //        printBoard(board);
     }
 }

@@ -1,15 +1,9 @@
-package com.asuscomm.yangyinetwork.ai.JYP;
+package com.asuscomm.yangyinetwork.ai.algorithms;
 
-import com.asuscomm.yangyinetwork.utils.domain.Node;
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.Node;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Stack;
-
-import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
-import static com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
-import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.choosePairRandomlyInBoard;
-import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.choosePairRandomlyInStonePoints;
-import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInBoard;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

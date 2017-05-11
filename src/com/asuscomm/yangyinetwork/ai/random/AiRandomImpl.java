@@ -1,4 +1,4 @@
-package com.asuscomm.yangyinetwork.ai;
+package com.asuscomm.yangyinetwork.ai.random;
 
 import com.asuscomm.yangyinetwork.utils.PossibleNextStone;
 

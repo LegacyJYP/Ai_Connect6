@@ -99,4 +99,16 @@ public class BoardUtils {
 
         return result;
     }
+
+    public static int[][] putStonePointsForVisualize(int[][] board, int[][] stonePoints, int stoneType) {
+        int[][] result = clone2darray(board);
+
+        for (int[] stonePoint:
+                stonePoints) {
+            result[stonePoint[X]][stonePoint[Y]] = stoneType+2;
+        }
+
+        return result;
+    }
+
 }

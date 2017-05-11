@@ -1,34 +1,25 @@
 package com.asuscomm.yangyinetwork.ai.JYP;
 
 
-import com.asuscomm.yangyinetwork.ai.Ai;
-import com.asuscomm.yangyinetwork.game.StonePoint;
-import com.asuscomm.yangyinetwork.utils.domain.BaseClass;
-import com.asuscomm.yangyinetwork.utils.domain.Node;
+import com.asuscomm.yangyinetwork.ai.algorithms.AlphaBetaForLoop;
+import com.asuscomm.yangyinetwork.ai.commons.AiBaseClass;
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.Node;
 import lombok.extern.slf4j.Slf4j;
 
 
-import static com.asuscomm.yangyinetwork.ai.JYP.AlphaBeta.alphabeta;
-import static com.asuscomm.yangyinetwork.ai.JYP.AlphaBetaForLoop.alphabetaforloop;
+import static com.asuscomm.yangyinetwork.ai.algorithms.AlphaBeta.alphabeta;
+import static com.asuscomm.yangyinetwork.ai.JYP.config.IterativeDeepening.MAXIMUM_DEPTH;
+import static com.asuscomm.yangyinetwork.ai.JYP.config.IterativeDeepening.START_DEPTH;
 import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
-import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.BLACK_STONE;
 import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInBoard;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..
  */
 @Slf4j
-public class AiJYPImpl extends BaseClass{
-    private boolean terminate;
-    final int MAXIMUM_DEPTH = 100;
-    final double EXTEND_TRHESH_EVAL = 0.1;
-    private int stoneType;
+public class AiJYPImpl extends AiBaseClass {
 
     public AiJYPImpl() {
-    }
-
-    public void setStoneType(int stoneType) {
-        this.stoneType = stoneType;
     }
 
     @Override
@@ -39,28 +30,24 @@ public class AiJYPImpl extends BaseClass{
             if (this.remainStones == 1) {
                 setSolution(new int[][]{chooseRandomlyInBoard(board)});
             } else {
-                Node rootTree = new Node(board, stoneType);
+                Node rootNode = new Node(board, stoneType);
 
-//                iterativeDeepeningSearch(rootTree);
-                int presentDepth = 0;
+//                iterativeDeepeningSearch(rootNode);
+                int presentDepth = START_DEPTH;
                 while(true) {
-                    presentDepth = presentDepth + 1;
-                    rootTree.extendByEval(presentDepth, EXTEND_TRHESH_EVAL);
+                    rootNode.extendByEval(presentDepth);
                     log.info("AiJYPImpl/iterativeDeepeningSearch: [{}]", presentDepth);
-                    Node bestNode = alphabeta(rootTree,0,-INF, INF, true, presentDepth);
+                    Node bestNode = (Node)alphabeta(rootNode,0, -INF, INF, true, presentDepth);
                     if(this.terminate) {
                         break;
                     }
-//                    log.info("AiJYPImpl/run: [{}]",this.terminate);
-//                    if(this.terminate) {
-//                        break;
-//                    }
-                    StonePoint[] stonePointPair = bestNode.getStonePoints();
+                    int[][] stonePointPair = bestNode.getMothersChild().getStonePoints();
                     setSolution(stonePointPair);
 
                     if(presentDepth >= MAXIMUM_DEPTH) {
                         break;
                     }
+                    presentDepth = presentDepth + 1;
                 }
             }
         }

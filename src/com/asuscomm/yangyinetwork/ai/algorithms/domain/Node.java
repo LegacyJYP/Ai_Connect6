@@ -1,13 +1,12 @@
-package com.asuscomm.yangyinetwork.utils.domain;
+package com.asuscomm.yangyinetwork.ai.algorithms.domain;
 
-import com.asuscomm.yangyinetwork.game.StonePoint;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.eval;
-import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
+import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.nextStonePairsByPolicy;
+import static com.asuscomm.yangyinetwork.consts.ENEMY_STONETYPE.ENEMY_STONETYPE;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.X;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.Y;
 import static com.asuscomm.yangyinetwork.utils.Clone2darray.clone2darray;
@@ -17,12 +16,15 @@ import static com.asuscomm.yangyinetwork.utils.PossibleNextStone.possibleNextSto
  * Created by jaeyoung on 2017. 5. 10..
  */
 @Slf4j
-public class Node extends BaseTree {
-    StonePoint[] stonePoints;
-    Double eval;
+public class Node extends BaseTree<Node> implements TreeForAlphabeta{
+    private int stoneType;
+    private int[][] board;
+    private int[][] stonePoints;
+    private Double eval;
 
-    public Node(BaseTree mother, StonePoint[] stonePoints, int stoneType) {
-        super(mother,stoneType);
+    public Node(Node mother, int[][] stonePoints) {
+        super(mother);
+        this.stoneType = ENEMY_STONETYPE(this.mother.stoneType);
         this.stonePoints = stonePoints;
 //        log.info("Node/Node: getStoneType[{}]",stonePoints[0].getStoneType());
 //        log.info("Node/Node: stoneTypeArg[{}]",stoneType);
@@ -34,10 +36,17 @@ public class Node extends BaseTree {
 //    }
 
     public Node(int[][] board, int stoneType) {
-        super(board,stoneType);
+        super();
+        this.stoneType = stoneType;
+        this.board = board;
     }
 
-    public StonePoint[] getStonePoints() {
+    @Override
+    public List<Node> getChildren() {
+        return super.children;
+    }
+
+    public int[][] getStonePoints() {
         return stonePoints;
     }
 
@@ -50,14 +59,38 @@ public class Node extends BaseTree {
         }
     }
 
-    private int[][] updateBoard(int[][] board, StonePoint[] stonePoints) {
+    private int[][] updateBoard(int[][] board, int[][] stonePoints) {
         int[][] result = clone2darray(board);
-        for (StonePoint stonePoint:
+        for (int[] stonePoint:
              stonePoints) {
-            int[] point = stonePoint.getStonePoints();
-            result[point[X]][point[Y]] = stonePoint.getStoneType();
+            result[stonePoint[X]][stonePoint[Y]] = this.stoneType;
         }
         return result;
+    }
+
+    public void extend() {
+        if(!this.extended) {
+            for (int[][] stonePointPair :
+                    possibleNextStonePair(this.getBoard())) {
+                this.children.add(new Node(this, stonePointPair));
+            }
+            this.extended = true;
+        }
+    }
+
+    public void extend(int targetDepth) {
+//        log.info("BaseTree/extend: targetDepth=[{}]",targetDepth);
+//        log.info("BaseTree/extend: before");
+//        boardCompare(getBoard());
+        extend();
+//        log.info("BaseTree/extend: after");
+//        boardCompare(getBoard());
+        if(targetDepth > 1) {
+            for (Node node :
+                    this.children) {
+                node.extend(targetDepth-1);
+            }
+        }
     }
 
     public double getEval() {
@@ -69,54 +102,30 @@ public class Node extends BaseTree {
         return this.eval;
     }
 
-    public void extendByEval(double threshPercentage) {
+    public void extendByEval() {
         if(!this.extended) {
-            List<Node> potentialChildren = new ArrayList<Node>();
+            List<int[][]> nextStonePairs = nextStonePairsByPolicy(getBoard(), this.stoneType);
             for (int[][] stonePointPair :
-                    possibleNextStonePair(this.getBoard())) {
-                StonePoint[] stonePoints = {new StonePoint(stonePointPair[0], this.stoneType), new StonePoint(stonePointPair[1], this.stoneType)};
-                Node node = new Node(this, stonePoints, this.nextTurn());
-                potentialChildren.add(node);
-            }
-            List<Node> sortedChildren = sortByEval(potentialChildren);
-            for (int i = 0; i < sortedChildren.size()*threshPercentage; i++) {
-                this.children.add(sortedChildren.get(i));
+                    nextStonePairs) {
+                Node node = new Node(this, stonePointPair);
+                this.children.add(node);
             }
 //            log.info("Node/extendByEval: maximumEval=[{}], wholechildren=[{}], numofchildren=[{}]",this.children.get(getChildrenSize()-1).getEval(), sortedChildren.size(), getChildrenSize());
             this.extended = true;
         }
     }
 
-    private List<Node> sortByEval(List<Node> nodes){
-        List<Node> sorted = new ArrayList<Node>();
-
-        for (int i = 0; i < nodes.size(); i++) {
-            double maximum = -INF;
-            int maximum_idx=i;
-            for (int j = i; j < nodes.size(); j++) {
-                double temp = nodes.get(j).getEval();
-                if(temp> maximum) {
-                    maximum = temp;
-                    maximum_idx = j;
-                }
-            }
-            sorted.add(nodes.get(maximum_idx));
-        }
-
-        return sorted;
-    }
-
-    public void extendByEval(int targetDepth, double threshPercentage) {
+    public void extendByEval(int targetDepth) {
 //        log.info("BaseTree/extend: targetDepth=[{}]",targetDepth);
 //        log.info("BaseTree/extend: before");
 //        boardCompare(getBoard());
-        extendByEval(threshPercentage);
+        extendByEval();
 //        log.info("BaseTree/extend: after");
 //        boardCompare(getBoard());
         if(targetDepth != 1) {
             for (Node node :
                     this.children) {
-                node.extendByEval(targetDepth-1, threshPercentage);
+                node.extendByEval(targetDepth-1);
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.asuscomm.yangyinetwork.ai;
+package com.asuscomm.yangyinetwork.ai.commons;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..

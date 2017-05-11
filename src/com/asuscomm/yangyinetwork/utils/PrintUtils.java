@@ -8,6 +8,7 @@ import java.util.List;
 
 import static com.asuscomm.yangyinetwork.utils.BoardUtils.board2string;
 import static com.asuscomm.yangyinetwork.utils.BoardUtils.probmap2string;
+import static com.asuscomm.yangyinetwork.utils.BoardUtils.putStonePointsForVisualize;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..
@@ -23,6 +24,9 @@ public class PrintUtils {
     public static void printStonePoint(int[] stonePoint) {
         System.out.println(Arrays.toString(stonePoint));
     }
+    public static void printStonePointPairs(int[][] stonePointPairs) {
+        log.info("AiBaseClass/setSolution: [{}], [{}]",""+ Arrays.toString(stonePointPairs[0]), ""+Arrays.toString(stonePointPairs[1]));
+    }
 
     public static void printBoard(int[][] board) {
 
@@ -34,6 +38,10 @@ public class PrintUtils {
 //             board) {
 //            log.info("PrintUtils/printBoard: [{}]",Arrays.toString(row));
 //        }
+    }
+
+    public static void printBoardWithNextStones(int[][] board, int[][] stonePoints, int stoneType) {
+        printBoard(putStonePointsForVisualize(board, stonePoints, stoneType));
     }
 
     public static void printProbmap(double[][] board) {
