@@ -32,7 +32,7 @@ public class Main {
 //        testProbMap(getSample(4));
 
 //        System.out.println();
-//        Ai ai = new AiRandomImpl();
+//        Ai ai_connect6.ai = new AiRandomImpl();
 
 //        https://www.youtube.com/watch?v=xBXHtz4Gbdo&t=158s
 //        alphabetaTest();
