@@ -1,5 +1,7 @@
-package com.asuscomm.yangyinetwork.ai.JYP;
+package com.asuscomm.yangyinetwork.ai.JYP.evaluation;
 
+import com.asuscomm.yangyinetwork.ai.JYP.EverySequences;
+import com.asuscomm.yangyinetwork.ai.JYP.Sequence;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -8,9 +10,7 @@ import java.util.List;
 
 import static com.asuscomm.yangyinetwork.consts.ENEMY_STONETYPE.ENEMY_STONETYPE;
 import static com.asuscomm.yangyinetwork.consts.ENEMY_STONETYPE.ENEMY_STONETYPE_INCLUDE_NONE;
-import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.BLACK_STONE;
-import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.WALL_STONE;
-import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.WHITE_STONE;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.*;
 import static com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
 import static com.asuscomm.yangyinetwork.utils.ArrayCompareUtils.boardCompare;
 
@@ -44,29 +44,41 @@ public class Eval {
 
                 int count = StringUtils.countMatches(seqString, sequence.getSequence());
                 evaluation += sequence.getScore() * count;
-                if (sequence.getScore() == GAMEEND*2) {
-                    if(count >0) {
-//                        log.info("Eval/evalSumBySequences: seqString=[{}]",seqString);
-                    }
+//                if (sequence.getScore() == GAMEEND*2) {
+//                    if(count >0) {
+////                        log.info("Eval/evalSumBySequences: seqString=[{}]",seqString);
+//                    }
 //                    log.debug("Eval/evalSumBySequences: [{}]", count);
-                }
+//                }
             }
         }
 
         return evaluation;
     }
     
-    private static List<String> everySequence(int[][] board) {
+    public static List<String> everySequence(int[][] board) {
         List<String> seqs = new ArrayList<String>();
         seqs.addAll(garo(board));
-//        seqs.addAll(sero(board));
-//        seqs.addAll(rightdowncross(board));
-//        seqs.addAll(leftdowncross(board));
+        seqs.addAll(sero(board));
+        seqs.addAll(rightdowncross(board));
+        seqs.addAll(leftdowncross(board));
+
+        seqs = wallToEnemy(seqs);
         
         return seqs;
     }
 
-    private static List<String> everyEnemySequence(int[][] board) {
+    public static List<String> wallToEnemy(List<String> sequences) {
+        List<String> result = new ArrayList<String>();
+        for (int i = 0; i < sequences.size(); i++) {
+            String seq = sequences.get(i);
+            result.add(seq.replace(Integer.toString(WALL_STONE), Integer.toString(WHITE_STONE)));
+        }
+
+        return result;
+    }
+
+    public static List<String> everyEnemySequence(int[][] board) {
         return everySequence(inverseBoard(board));
     }
 

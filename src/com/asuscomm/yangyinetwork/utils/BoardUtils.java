@@ -1,7 +1,12 @@
 package com.asuscomm.yangyinetwork.utils;
 
+import com.asuscomm.yangyinetwork.game.StonePoint;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.*;
+import static com.asuscomm.yangyinetwork.utils.Clone2darray.clone2darray;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..
@@ -49,5 +54,49 @@ public class BoardUtils {
         }
 
         return boardString;
+    }
+
+    public static List<String> probmap2string(double[][] board) {
+        int row = board.length;
+        int col = board[0].length;
+
+        List<String> boardString = new ArrayList<String>();
+        for (int i = 0; i < row; i++) {
+            String eachLine = "";
+            for (int j = 0; j < col; j++) {
+                eachLine += " "+cutoffDouble(board[i][j],4, 1);
+            }
+            boardString.add(eachLine);
+        }
+
+        return boardString;
+    }
+
+    public static String cutoffDouble(double input, int length, int PREFIX) {
+        String outputString;
+        if(input== BLACK_STONE|| input == WHITE_STONE){
+            outputString = (int)input+"";
+            for (int i = 0; i < length-1; i++) {
+                outputString+=" ";
+            }
+        } else {
+            String inputString = Double.toString(input);
+            outputString = inputString.substring(PREFIX, Math.min(length + PREFIX, inputString.length()));
+            for (int i = 0; i < (length+PREFIX)-Math.min(length + PREFIX, inputString.length()); i++) {
+                outputString+=" ";
+            }
+        }
+        return outputString;
+    }
+
+    public static int[][] putStonePoints(int[][] board, int[][] stonePoints, int stoneType) {
+        int[][] result = clone2darray(board);
+
+        for (int[] stonePoint:
+        stonePoints) {
+            result[stonePoint[X]][stonePoint[Y]] = stoneType;
+        }
+
+        return result;
     }
 }

@@ -28,7 +28,7 @@ public class PossibleNextStone {
 
         int length = possibleNextStones.size();
         for (int i = 0; i < length-1; i++) {
-            for(int j=i; j<length; j++) {
+            for(int j=i+1; j<length; j++) {
                 possibleNextStonePairs.add(new int[][]{ possibleNextStones.get(i), possibleNextStones.get(j)});
             }
         }

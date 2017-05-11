@@ -1,12 +1,9 @@
 package com.asuscomm.yangyinetwork.ai.JYP;
 
-import com.asuscomm.yangyinetwork.utils.domain.BaseTree;
 import com.asuscomm.yangyinetwork.utils.domain.Node;
 
-import static com.asuscomm.yangyinetwork.ai.JYP.Eval.eval;
 import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
 import static com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
-import static com.asuscomm.yangyinetwork.utils.ArrayCompareUtils.boardCompare;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

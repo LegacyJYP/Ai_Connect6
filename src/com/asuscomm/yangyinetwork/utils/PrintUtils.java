@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.asuscomm.yangyinetwork.utils.BoardUtils.board2string;
+import static com.asuscomm.yangyinetwork.utils.BoardUtils.probmap2string;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..
@@ -27,13 +28,29 @@ public class PrintUtils {
 
         List<String> boardString = board2string(board);
 
-        for (int i = 0; i < boardString.size(); i++) {
-            log.info("PrintUtils/printBoard: [{}]",boardString.get(i));
-        }
+        printStringList(boardString);
 
 //        for (int[] row:
 //             board) {
 //            log.info("PrintUtils/printBoard: [{}]",Arrays.toString(row));
 //        }
+    }
+
+    public static void printProbmap(double[][] board) {
+
+        List<String> boardString = probmap2string(board);
+
+        printStringList(boardString);
+
+//        for (int[] row:
+//             board) {
+//            log.info("PrintUtils/printBoard: [{}]",Arrays.toString(row));
+//        }
+    }
+
+    public static void printStringList(List<String> boardString) {
+        for (int i = 0; i < boardString.size(); i++) {
+            log.info("PrintUtils/printBoard: [{}]",boardString.get(i));
+        }
     }
 }

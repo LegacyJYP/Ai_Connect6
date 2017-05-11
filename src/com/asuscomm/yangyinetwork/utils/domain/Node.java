@@ -1,15 +1,12 @@
 package com.asuscomm.yangyinetwork.utils.domain;
 
 import com.asuscomm.yangyinetwork.game.StonePoint;
-import com.asuscomm.yangyinetwork.utils.PrintUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.omg.CORBA.INV_FLAG;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static com.asuscomm.yangyinetwork.ai.JYP.Eval.eval;
+import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.eval;
 import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.X;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.Y;
@@ -27,7 +24,14 @@ public class Node extends BaseTree {
     public Node(BaseTree mother, StonePoint[] stonePoints, int stoneType) {
         super(mother,stoneType);
         this.stonePoints = stonePoints;
+//        log.info("Node/Node: getStoneType[{}]",stonePoints[0].getStoneType());
+//        log.info("Node/Node: stoneTypeArg[{}]",stoneType);
     }
+
+//    public Node(BaseTree mother, StonePoint[] stonePoints, int stoneType) {
+//        super(mother,stoneType);
+//        this.stonePoints = stonePoints;
+//    }
 
     public Node(int[][] board, int stoneType) {
         super(board,stoneType);
@@ -73,7 +77,6 @@ public class Node extends BaseTree {
                 StonePoint[] stonePoints = {new StonePoint(stonePointPair[0], this.stoneType), new StonePoint(stonePointPair[1], this.stoneType)};
                 Node node = new Node(this, stonePoints, this.nextTurn());
                 potentialChildren.add(node);
-                double temp = node.getEval();
             }
             List<Node> sortedChildren = sortByEval(potentialChildren);
             for (int i = 0; i < sortedChildren.size()*threshPercentage; i++) {

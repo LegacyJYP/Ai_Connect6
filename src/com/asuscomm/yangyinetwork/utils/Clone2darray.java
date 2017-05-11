@@ -5,9 +5,25 @@ package com.asuscomm.yangyinetwork.utils;
  */
 public class Clone2darray {
     public static int[][] clone2darray(int[][] arr) {
-        int[][] result = new int[arr.length][];
-        for (int i = 0; i < arr.length; i++) {
-            result[i] = arr[i].clone();
+        int row = arr.length;
+        int col = arr[0].length;
+        int[][] result = new int[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result[i][j] = arr[i][j];
+            }
+        }
+        return result;
+    }
+
+    public static double[][] clone2darrayToDouble(int[][] arr) {
+        int row = arr.length;
+        int col = arr[0].length;
+        double[][] result = new double[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result[i][j] = arr[i][j];
+            }
         }
         return result;
     }
