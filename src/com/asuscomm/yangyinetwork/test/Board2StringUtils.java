@@ -4,9 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.everyEnemySequence;
-import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.everySequence;
-import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.wallToEnemy;
+import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation.everyEnemySequence;
+import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation.everySequence;
+import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation.wallToEnemy;
 import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStringList;
 
 /**

@@ -34,7 +34,7 @@ public class AlphaBeta {
                 if (v < w) {
                     bestNode = child;
                     v = w;
-                    log.info("AlphaBeta/alphabeta: updateBestNode=[{}]",depth);printBoard(((Node)bestNode).getBoard());
+//                    log.info("AlphaBeta/alphabeta: updateBestNode=[{}]",depth);printBoard(((Node)bestNode).getBoard());
                 }
                 alpha = max(alpha, v);
                 if(beta <= alpha) {
@@ -52,7 +52,7 @@ public class AlphaBeta {
                 if (v > w) {
                     bestNode = child;
                     v = w;
-                    log.info("AlphaBeta/alphabeta: updateBestNode=[{}]",depth);printBoard(((Node)bestNode).getBoard());
+//                    log.info("AlphaBeta/alphabeta: updateBestNode=[{}]",depth);printBoard(((Node)bestNode).getBoard());
                 }
                 beta = -max(-beta, -v);
                 if(beta <= alpha) {

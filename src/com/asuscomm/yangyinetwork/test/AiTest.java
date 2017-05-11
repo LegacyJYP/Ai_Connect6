@@ -39,7 +39,7 @@ public class AiTest {
 
 
     public static void testJYPAiImpl() {
-        final int[][] board = getSample(4);
+        final int[][] board = getSample(0);
         final int stoneType = BLACK_STONE;
         final int remainStones = 2;
 

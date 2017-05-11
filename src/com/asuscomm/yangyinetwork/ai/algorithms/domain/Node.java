@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.eval;
+import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation.evaluation;
 import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.nextStonePairsByPolicy;
 import static com.asuscomm.yangyinetwork.consts.ENEMY_STONETYPE.ENEMY_STONETYPE;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.X;
@@ -95,7 +95,7 @@ public class Node extends BaseTree<Node> implements TreeForAlphabeta{
 
     public double getEval() {
         if (this.eval == null) {
-            this.eval = eval(getBoard(), ENEMY_STONETYPE(getRoot().getStoneType()));
+            this.eval = evaluation(getBoard(), ENEMY_STONETYPE(getRoot().getStoneType()));
 //            PrintUtils.printBoard(getBoard());
 //            log.info("Node/getEval: eval=[{}]",this.eval);
         }

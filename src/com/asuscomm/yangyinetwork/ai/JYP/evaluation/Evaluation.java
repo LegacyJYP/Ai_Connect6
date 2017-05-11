@@ -18,8 +18,8 @@ import static com.asuscomm.yangyinetwork.utils.ArrayCompareUtils.boardCompare;
  * Created by jaeyoung on 2017. 5. 10..
  */
 @Slf4j
-public class Eval {
-    public static double eval(int[][] board, int stoneType) {
+public class Evaluation {
+    public static double evaluation(int[][] board, int stoneType) {
 //        boardCompare(board);
         List<String> seqs = everySequence(board);
         List<String> enemySeqs = everyEnemySequence(board);
@@ -45,9 +45,9 @@ public class Eval {
                 evaluation += sequence.getScore() * count;
 //                if (sequence.getScore() == GAMEEND*2) {
 //                    if(count >0) {
-//                        log.info("Eval/evalSumBySequences: seqString=[{}]",seqString);
+//                        log.info("Evaluation/evalSumBySequences: seqString=[{}]",seqString);
 //                    }
-//                    log.debug("Eval/evalSumBySequences: [{}]", count);
+//                    log.debug("Evaluation/evalSumBySequences: [{}]", count);
 //                }
             }
         }

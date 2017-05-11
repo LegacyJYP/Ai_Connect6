@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.eval;
+import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation.evaluation;
 import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.makeProbmapWithStonePairs;
 import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.nextStonePairsByPolicy;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.BLACK_STONE;
@@ -19,8 +19,8 @@ import static com.asuscomm.yangyinetwork.utils.PrintUtils.printProbmap;
 public class HeuristicProbMapFunc {
     public static void testHeuristicFunc(int[][] board) {
         printBoard(board);
-        log.info("HeuristicProbMapFunc/testHeuristicFunc: BLACK=[{}]",eval(board, BLACK_STONE));
-        log.info("HeuristicProbMapFunc/testHeuristicFunc: WHITE=[{}]",eval(board, WHITE_STONE));
+        log.info("HeuristicProbMapFunc/testHeuristicFunc: BLACK=[{}]",evaluation(board, BLACK_STONE));
+        log.info("HeuristicProbMapFunc/testHeuristicFunc: WHITE=[{}]",evaluation(board, WHITE_STONE));
     }
 
     public static void testProbMap(int[][] board) {

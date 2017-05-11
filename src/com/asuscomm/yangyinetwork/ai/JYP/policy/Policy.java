@@ -3,12 +3,10 @@ package com.asuscomm.yangyinetwork.ai.JYP.policy;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.asuscomm.yangyinetwork.ai.JYP.config.Policy.NEXT_STONE_PAIRS_THERSH_PERSENTAGE;
-import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.eval;
-import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.BLACK_STONE;
+import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation.evaluation;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.X;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.Y;
 import static com.asuscomm.yangyinetwork.utils.BoardUtils.putStonePoints;
@@ -32,7 +30,7 @@ public class Policy {
 //            log.info("Policy/policy: before");
 //            printBoard(board);
 //            printBoard(afterBoard);
-            double ev= eval(afterBoard, stoneType);
+            double ev= evaluation(afterBoard, stoneType);
             evals.add(ev);
             if(ev > 100) {
 //                log.info("Policy/policy: after putStonePoints [{}], [{}], eval=[{}]",
