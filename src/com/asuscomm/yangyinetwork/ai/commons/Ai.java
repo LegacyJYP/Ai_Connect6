@@ -5,7 +5,7 @@ package com.asuscomm.yangyinetwork.ai.commons;
  */
 public interface Ai {
     interface OnSolutionListener {
-        void onSolution(int[][] stonePoint);
+        void onSolution(int[][] stonePoint, int remainStones);
     }
     void findSolution(int[][] board, int remainStones, OnSolutionListener listener);
     void setStoneType(int stoneType);

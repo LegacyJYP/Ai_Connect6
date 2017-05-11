@@ -63,7 +63,7 @@ public class Node extends BaseTree<Node> implements TreeForAlphabeta{
         int[][] result = clone2darray(board);
         for (int[] stonePoint:
              stonePoints) {
-            result[stonePoint[X]][stonePoint[Y]] = this.stoneType;
+            result[stonePoint[X]][stonePoint[Y]] = ENEMY_STONETYPE(this.stoneType);
         }
         return result;
     }
@@ -95,7 +95,7 @@ public class Node extends BaseTree<Node> implements TreeForAlphabeta{
 
     public double getEval() {
         if (this.eval == null) {
-            this.eval = eval(getBoard(), getRoot().getStoneType());
+            this.eval = eval(getBoard(), ENEMY_STONETYPE(getRoot().getStoneType()));
 //            PrintUtils.printBoard(getBoard());
 //            log.info("Node/getEval: eval=[{}]",this.eval);
         }
@@ -109,8 +109,8 @@ public class Node extends BaseTree<Node> implements TreeForAlphabeta{
                     nextStonePairs) {
                 Node node = new Node(this, stonePointPair);
                 this.children.add(node);
+//                log.info("Node/extendByEval: node.getEval[{}]",node.getEval());
             }
-//            log.info("Node/extendByEval: maximumEval=[{}], wholechildren=[{}], numofchildren=[{}]",this.children.get(getChildrenSize()-1).getEval(), sortedChildren.size(), getChildrenSize());
             this.extended = true;
         }
     }

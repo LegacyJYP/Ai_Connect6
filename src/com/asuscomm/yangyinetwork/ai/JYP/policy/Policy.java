@@ -3,10 +3,12 @@ package com.asuscomm.yangyinetwork.ai.JYP.policy;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.asuscomm.yangyinetwork.ai.JYP.config.Policy.NEXT_STONE_PAIRS_THERSH_PERSENTAGE;
 import static com.asuscomm.yangyinetwork.ai.JYP.evaluation.Eval.eval;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.BLACK_STONE;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.X;
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.Y;
 import static com.asuscomm.yangyinetwork.utils.BoardUtils.putStonePoints;
@@ -29,18 +31,23 @@ public class Policy {
             int[][] afterBoard = putStonePoints(board, stonePointPair, stoneType);
 //            log.info("Policy/policy: before");
 //            printBoard(board);
-//            log.info("Policy/policy: after putStonePoints [{}], [{}]", Arrays.toString(stonePointPair[0]), Arrays.toString(stonePointPair[1]));
 //            printBoard(afterBoard);
-            evals.add(eval(afterBoard, stoneType));
+            double ev= eval(afterBoard, stoneType);
+            evals.add(ev);
+            if(ev > 100) {
+//                log.info("Policy/policy: after putStonePoints [{}], [{}], eval=[{}]",
+//                        Arrays.toString(stonePointPair[0]), Arrays.toString(stonePointPair[1]), evals.get(i));
+            }
         }
-
-        List<Integer> sorted = sortedIndex(evals);
+        List<Integer> sorted = null;
+        sorted = sortedIndex(evals);
 
         for (int i = 0; i < possibleNextStonePairs.size() * NEXT_STONE_PAIRS_THERSH_PERSENTAGE; i++) {
             int idx = sorted.get(i);
             filteredNextStonePairs.add(possibleNextStonePairs.get(idx));
-//            log.info("Policy/policy: [{}]",evals.get(idx));
-        }
+//            log.info("Policy/policy: possibleNextStonePairs=[{}], [{}] evals=[{}]",
+//                    possibleNextStonePairs.get(idx)[0], possibleNextStonePairs.get(idx)[1], evals.get(idx));
+        } // 1. 디버깅 2. CPP 3. 씨코드 참고 4. 정책망 가치망 고치기 5. 몬테카를로
 
         return filteredNextStonePairs;
     }

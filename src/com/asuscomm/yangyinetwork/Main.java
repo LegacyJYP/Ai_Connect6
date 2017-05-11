@@ -23,8 +23,11 @@ import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePoint;
 public class Main {
     public static void main(String[] args) {
 //        testEverySequence(getSample(2));
-//        testHeuristicFunc(getSample(3));
+
 //        testHeuristicFunc(getSample(4));
+//        testHeuristicFunc(getSample(5));
+//        testHeuristicFunc(getSample(6));
+
 //        testWallToEnemy(getSample(4));
 //        testProbMap(getSample(4));
 
@@ -34,7 +37,7 @@ public class Main {
 //        https://www.youtube.com/watch?v=xBXHtz4Gbdo&t=158s
 //        alphabetaTest();
 
-//        testJYPAiImpl();
+        testJYPAiImpl();
 
 //        printStonePoints(RuleChecker.isGameEnd(board, new int[]{3,3}));
     }

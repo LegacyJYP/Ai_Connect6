@@ -41,12 +41,11 @@ public class Eval {
                 seqsString) {
             for (Sequence sequence:
             EverySequences.getEverySequences()) {
-
                 int count = StringUtils.countMatches(seqString, sequence.getSequence());
                 evaluation += sequence.getScore() * count;
 //                if (sequence.getScore() == GAMEEND*2) {
 //                    if(count >0) {
-////                        log.info("Eval/evalSumBySequences: seqString=[{}]",seqString);
+//                        log.info("Eval/evalSumBySequences: seqString=[{}]",seqString);
 //                    }
 //                    log.debug("Eval/evalSumBySequences: [{}]", count);
 //                }

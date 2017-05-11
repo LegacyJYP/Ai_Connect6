@@ -1,5 +1,6 @@
 package com.asuscomm.yangyinetwork.ai.algorithms;
 
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.Node;
 import com.asuscomm.yangyinetwork.ai.algorithms.domain.TreeForAlphabeta;
 import lombok.extern.slf4j.Slf4j;
 
@@ -7,6 +8,7 @@ import java.util.List;
 
 import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
 import static com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printBoard;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..
@@ -18,7 +20,7 @@ public class AlphaBeta {
         double v = 0;
         TreeForAlphabeta bestNode = node;
         if(node.getEval() >= GAMEEND || node.getEval() <= (-GAMEEND) || node.getChildrenSize() == 0 || depth == maximumDepth) {
-            log.info("AlphaBeta/alphabeta: GAMEEND OR MAXIMUMDEPTH [{}]",bestNode.getEval());
+//            log.info("AlphaBeta/alphabeta: GAMEEND OR MAXIMUMDEPTH [{}]",bestNode.getEval());
             return bestNode;
         }
 
@@ -32,6 +34,7 @@ public class AlphaBeta {
                 if (v < w) {
                     bestNode = child;
                     v = w;
+                    log.info("AlphaBeta/alphabeta: updateBestNode=[{}]",depth);printBoard(((Node)bestNode).getBoard());
                 }
                 alpha = max(alpha, v);
                 if(beta <= alpha) {
@@ -49,6 +52,7 @@ public class AlphaBeta {
                 if (v > w) {
                     bestNode = child;
                     v = w;
+                    log.info("AlphaBeta/alphabeta: updateBestNode=[{}]",depth);printBoard(((Node)bestNode).getBoard());
                 }
                 beta = -max(-beta, -v);
                 if(beta <= alpha) {

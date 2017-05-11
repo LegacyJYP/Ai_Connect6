@@ -12,6 +12,7 @@ import static com.asuscomm.yangyinetwork.ai.JYP.config.IterativeDeepening.MAXIMU
 import static com.asuscomm.yangyinetwork.ai.JYP.config.IterativeDeepening.START_DEPTH;
 import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
 import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInBoard;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printBoard;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..
@@ -38,6 +39,8 @@ public class AiJYPImpl extends AiBaseClass {
                     rootNode.extendByEval(presentDepth);
                     log.info("AiJYPImpl/iterativeDeepeningSearch: [{}]", presentDepth);
                     Node bestNode = (Node)alphabeta(rootNode,0, -INF, INF, true, presentDepth);
+                    log.info("AiJYPImpl/run: bestNode");
+                    printBoard(bestNode.getBoard());
                     if(this.terminate) {
                         break;
                     }

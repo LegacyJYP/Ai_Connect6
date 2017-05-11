@@ -23,6 +23,8 @@ public class Samples {
     }
 
     public static void initSamples() {
+
+        // 0
         samples.add(new String[]{
                 "200000",
                 "200000",
@@ -32,6 +34,7 @@ public class Samples {
                 "200000",
         });
 
+        // 1
         samples.add(new String[]{
                 "200000",
                 "200000",
@@ -40,6 +43,7 @@ public class Samples {
                 "200000",
                 "000000",
         });
+        // 2
         samples.add(new String[]{
                 "100000",
                 "100000",
@@ -48,6 +52,8 @@ public class Samples {
                 "100000",
                 "100000",
         });
+
+        // 3
         samples.add(new String[]{
                 "010000",
                 "010000",
@@ -57,6 +63,8 @@ public class Samples {
                 "000000",
         });
 
+
+        // 4
         samples.add(new String[]{
                 "001000",
                 "000000",
@@ -64,6 +72,26 @@ public class Samples {
                 "001000",
                 "001000",
                 "000000",
+        });
+
+        // 5
+        samples.add(new String[]{
+                "001000",
+                "001000",
+                "001000",
+                "001000",
+                "001000",
+                "000000",
+        });
+
+        // 6
+        samples.add(new String[]{
+                "001000",
+                "000000",
+                "000000",
+                "001000",
+                "001000",
+                "011000",
         });
     }
 }

@@ -1,6 +1,5 @@
 package com.asuscomm.yangyinetwork.ai.commons;
 
-import com.asuscomm.yangyinetwork.game.StonePoint;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -56,7 +55,7 @@ public abstract class AiBaseClass implements Ai, Runnable {
                 e.printStackTrace();
             }
         }
-        listener.onSolution(this.currentOptimal);
+        listener.onSolution(this.currentOptimal, this.remainStones);
     }
 
     protected void terminate() {
@@ -73,11 +72,5 @@ public abstract class AiBaseClass implements Ai, Runnable {
         printBoardWithNextStones(board, stonePointPair, stoneType);
         printStonePointPairs(stonePointPair);
         this.currentOptimal = stonePointPair;
-    }
-
-    protected void setSolution(StonePoint[] stonePointPair) {
-        log.info("AiBaseClass/setSolution: [{}], [{}]",""+ Arrays.toString(stonePointPair[0].getStonePoints()), ""+Arrays.toString(stonePointPair[1].getStonePoints()));
-        this.setSolution(new int[][] { stonePointPair[0].getStonePoints(),
-                stonePointPair[1].getStonePoints() } );
     }
 }

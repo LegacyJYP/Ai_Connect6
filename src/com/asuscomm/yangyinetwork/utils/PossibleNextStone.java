@@ -1,12 +1,16 @@
 package com.asuscomm.yangyinetwork.utils;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.NONE_STONE;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..
  */
+@Slf4j
 public class PossibleNextStone {
     public static ArrayList<int[]> possibleNextStone(int[][] board) {
         ArrayList<int[]> possibleNextStones = new ArrayList<int[]>();
@@ -29,7 +33,10 @@ public class PossibleNextStone {
         int length = possibleNextStones.size();
         for (int i = 0; i < length-1; i++) {
             for(int j=i+1; j<length; j++) {
-                possibleNextStonePairs.add(new int[][]{ possibleNextStones.get(i), possibleNextStones.get(j)});
+                int[] firstStone = possibleNextStones.get(i);
+                int[] secondStone = possibleNextStones.get(j);
+//                log.info("PossibleNextStone/possibleNextStonePair: [{}], [{}]", Arrays.toString(firstStone), Arrays.toString(secondStone));
+                possibleNextStonePairs.add(new int[][]{ firstStone, secondStone});
             }
         }
         return possibleNextStonePairs;

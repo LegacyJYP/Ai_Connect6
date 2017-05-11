@@ -41,11 +41,12 @@ public class AiTest {
     public static void testJYPAiImpl() {
         final int[][] board = getSample(4);
         final int stoneType = BLACK_STONE;
+        final int remainStones = 2;
 
         Ai ai = new AiJYPImpl();
         ai.setStoneType(stoneType);
-        ai.findSolution(board, 2, new Ai.OnSolutionListener() {
-            public void onSolution(int[][] stonePointPair) {
+        ai.findSolution(board, remainStones, new Ai.OnSolutionListener() {
+            public void onSolution(int[][] stonePointPair, int remainStones) {
                 printStonePoint(stonePointPair[0]);
                 printStonePoint(stonePointPair[1]);
                 printBoardWithNextStones(board, stonePointPair, stoneType);

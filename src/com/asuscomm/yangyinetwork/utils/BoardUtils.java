@@ -1,6 +1,5 @@
 package com.asuscomm.yangyinetwork.utils;
 
-import com.asuscomm.yangyinetwork.game.StonePoint;
 
 import java.util.ArrayList;
 import java.util.List;
