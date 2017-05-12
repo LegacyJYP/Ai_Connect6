@@ -1,4 +1,4 @@
-package main.java.com.asuscomm.yangyinetwork.ai.algorithms.domain;
+package com.asuscomm.yangyinetwork.ai.algorithms.domain;
 
 import lombok.extern.slf4j.Slf4j;
 

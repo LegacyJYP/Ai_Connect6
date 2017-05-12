@@ -1,4 +1,4 @@
-package main.java.com.asuscomm.yangyinetwork.utils;
+package com.asuscomm.yangyinetwork.utils;
 
 import java.util.List;
 

@@ -1,13 +1,13 @@
-package main.java.com.asuscomm.yangyinetwork.ai.commons;
+package com.asuscomm.yangyinetwork.ai.commons;
 
 import lombok.extern.slf4j.Slf4j;
 
 
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_RULE.REAL_TIME_LIMITS;
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_RULE.TIMELIMIT_CHECK_PERIOD;
-import static main.java.com.asuscomm.yangyinetwork.utils.ChooseRandomly.choosePairRandomlyInBoard;
-import static main.java.com.asuscomm.yangyinetwork.utils.PrintUtils.printBoardWithNextStones;
-import static main.java.com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePointPairs;
+import static com.asuscomm.yangyinetwork.consts.GAME_RULE.REAL_TIME_LIMITS;
+import static com.asuscomm.yangyinetwork.consts.GAME_RULE.TIMELIMIT_CHECK_PERIOD;
+import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.choosePairRandomlyInBoard;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printBoardWithNextStones;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePointPairs;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

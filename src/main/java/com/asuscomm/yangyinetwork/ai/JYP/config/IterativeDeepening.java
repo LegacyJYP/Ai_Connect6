@@ -1,4 +1,4 @@
-package main.java.com.asuscomm.yangyinetwork.ai.JYP.config;
+package com.asuscomm.yangyinetwork.ai.JYP.config;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..

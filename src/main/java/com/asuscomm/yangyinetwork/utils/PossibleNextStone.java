@@ -1,10 +1,10 @@
-package main.java.com.asuscomm.yangyinetwork.utils;
+package com.asuscomm.yangyinetwork.utils;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD.NONE_STONE;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.NONE_STONE;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..

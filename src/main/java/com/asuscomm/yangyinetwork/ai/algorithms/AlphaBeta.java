@@ -1,12 +1,12 @@
-package main.java.com.asuscomm.yangyinetwork.ai.algorithms;
+package com.asuscomm.yangyinetwork.ai.algorithms;
 
-import main.java.com.asuscomm.yangyinetwork.ai.algorithms.domain.TreeForAlphabeta;
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.TreeForAlphabeta;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.consts.CONSTS.INF;
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
+import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
+import static com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

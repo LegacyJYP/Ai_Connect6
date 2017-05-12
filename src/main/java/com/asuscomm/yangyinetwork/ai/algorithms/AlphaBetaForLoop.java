@@ -1,6 +1,6 @@
-package main.java.com.asuscomm.yangyinetwork.ai.algorithms;
+package com.asuscomm.yangyinetwork.ai.algorithms;
 
-import main.java.com.asuscomm.yangyinetwork.ai.algorithms.domain.Node;
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.Node;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Stack;

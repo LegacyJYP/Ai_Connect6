@@ -1,10 +1,10 @@
-package main.java.com.asuscomm.yangyinetwork.utils;
+package com.asuscomm.yangyinetwork.utils;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD.*;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.*;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..

@@ -1,9 +1,9 @@
-package main.java.com.asuscomm.yangyinetwork.test;
+package com.asuscomm.yangyinetwork.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.utils.BoardUtils.string2board;
+import static com.asuscomm.yangyinetwork.utils.BoardUtils.string2board;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..

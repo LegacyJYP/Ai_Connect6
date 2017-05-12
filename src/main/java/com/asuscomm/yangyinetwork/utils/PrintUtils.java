@@ -1,13 +1,13 @@
-package main.java.com.asuscomm.yangyinetwork.utils;
+package com.asuscomm.yangyinetwork.utils;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.utils.BoardUtils.board2string;
-import static main.java.com.asuscomm.yangyinetwork.utils.BoardUtils.probmap2string;
-import static main.java.com.asuscomm.yangyinetwork.utils.BoardUtils.putStonePointsForVisualize;
+import static com.asuscomm.yangyinetwork.utils.BoardUtils.board2string;
+import static com.asuscomm.yangyinetwork.utils.BoardUtils.probmap2string;
+import static com.asuscomm.yangyinetwork.utils.BoardUtils.putStonePointsForVisualize;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..

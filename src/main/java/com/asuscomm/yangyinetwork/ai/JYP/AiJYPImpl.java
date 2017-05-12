@@ -1,17 +1,17 @@
-package main.java.com.asuscomm.yangyinetwork.ai.JYP;
+package com.asuscomm.yangyinetwork.ai.JYP;
 
 
-import main.java.com.asuscomm.yangyinetwork.ai.algorithms.AlphaBetaForLoop;
-import main.java.com.asuscomm.yangyinetwork.ai.commons.AiBaseClass;
-import main.java.com.asuscomm.yangyinetwork.ai.algorithms.domain.Node;
+import com.asuscomm.yangyinetwork.ai.algorithms.AlphaBetaForLoop;
+import com.asuscomm.yangyinetwork.ai.commons.AiBaseClass;
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.Node;
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.asuscomm.yangyinetwork.ai.JYP.config.IterativeDeepening;
-import main.java.com.asuscomm.yangyinetwork.ai.algorithms.AlphaBeta;
-import main.java.com.asuscomm.yangyinetwork.consts.CONSTS;
-import main.java.com.asuscomm.yangyinetwork.utils.PrintUtils;
+import com.asuscomm.yangyinetwork.ai.JYP.config.IterativeDeepening;
+import com.asuscomm.yangyinetwork.ai.algorithms.AlphaBeta;
+import com.asuscomm.yangyinetwork.consts.CONSTS;
+import com.asuscomm.yangyinetwork.utils.PrintUtils;
 
 
-import static main.java.com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInBoard;
+import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInBoard;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

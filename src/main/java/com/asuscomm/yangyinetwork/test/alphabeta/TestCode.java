@@ -1,9 +1,9 @@
-package main.java.com.asuscomm.yangyinetwork.test.alphabeta;
+package com.asuscomm.yangyinetwork.test.alphabeta;
 
 import lombok.extern.slf4j.Slf4j;
 
-import static main.java.com.asuscomm.yangyinetwork.ai.algorithms.AlphaBeta.alphabeta;
-import static main.java.com.asuscomm.yangyinetwork.consts.CONSTS.INF;
+import static com.asuscomm.yangyinetwork.ai.algorithms.AlphaBeta.alphabeta;
+import static com.asuscomm.yangyinetwork.consts.CONSTS.INF;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..

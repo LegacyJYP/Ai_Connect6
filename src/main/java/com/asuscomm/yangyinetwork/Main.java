@@ -1,7 +1,7 @@
-package main.java.com.asuscomm.yangyinetwork;
+package com.asuscomm.yangyinetwork;
 
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.asuscomm.yangyinetwork.test.AiTest;
+import com.asuscomm.yangyinetwork.test.AiTest;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..

@@ -1,13 +1,13 @@
-package main.java.com.asuscomm.yangyinetwork.utils;
+package com.asuscomm.yangyinetwork.utils;
 
-import main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD;
+import com.asuscomm.yangyinetwork.consts.GAME_BOARD;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.utils.RuleChecker.UPANDDOWN.DOWN;
-import static main.java.com.asuscomm.yangyinetwork.utils.RuleChecker.UPANDDOWN.END;
-import static main.java.com.asuscomm.yangyinetwork.utils.RuleChecker.UPANDDOWN.UP;
+import static com.asuscomm.yangyinetwork.utils.RuleChecker.UPANDDOWN.DOWN;
+import static com.asuscomm.yangyinetwork.utils.RuleChecker.UPANDDOWN.END;
+import static com.asuscomm.yangyinetwork.utils.RuleChecker.UPANDDOWN.UP;
 
 /**
  * Created by jaeyoung on 2017. 5. 9..

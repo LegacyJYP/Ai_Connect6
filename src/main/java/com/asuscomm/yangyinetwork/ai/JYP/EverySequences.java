@@ -1,13 +1,13 @@
-package main.java.com.asuscomm.yangyinetwork.ai.JYP;
+package com.asuscomm.yangyinetwork.ai.JYP;
 
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD;
+import com.asuscomm.yangyinetwork.consts.GAME_BOARD;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.ai.JYP.EverySequences.SequenceSymbol.*;
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
+import static com.asuscomm.yangyinetwork.ai.JYP.EverySequences.SequenceSymbol.*;
+import static com.asuscomm.yangyinetwork.consts.GAME_EVAL.GAMEEND;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

@@ -1,8 +1,8 @@
-package main.java.com.asuscomm.yangyinetwork.test;
+package com.asuscomm.yangyinetwork.test;
 
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation;
-import main.java.com.asuscomm.yangyinetwork.utils.PrintUtils;
+import com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation;
+import com.asuscomm.yangyinetwork.utils.PrintUtils;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package main.java.com.asuscomm.yangyinetwork.test.alphabeta;
+package com.asuscomm.yangyinetwork.test.alphabeta;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..

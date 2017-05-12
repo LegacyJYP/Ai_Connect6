@@ -1,4 +1,4 @@
-package main.java.com.asuscomm.yangyinetwork.ai.JYP;
+package com.asuscomm.yangyinetwork.ai.JYP;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

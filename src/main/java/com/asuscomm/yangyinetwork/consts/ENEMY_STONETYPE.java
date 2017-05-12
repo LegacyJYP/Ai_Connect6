@@ -1,6 +1,6 @@
-package main.java.com.asuscomm.yangyinetwork.consts;
+package com.asuscomm.yangyinetwork.consts;
 
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD.NONE_STONE;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.NONE_STONE;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

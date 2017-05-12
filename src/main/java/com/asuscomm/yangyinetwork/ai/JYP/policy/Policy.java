@@ -1,12 +1,12 @@
-package main.java.com.asuscomm.yangyinetwork.ai.JYP.policy;
+package com.asuscomm.yangyinetwork.ai.JYP.policy;
 
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation;
-import main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD;
-import main.java.com.asuscomm.yangyinetwork.utils.BoardUtils;
-import main.java.com.asuscomm.yangyinetwork.utils.Clone2darray;
-import main.java.com.asuscomm.yangyinetwork.utils.PossibleNextStone;
-import main.java.com.asuscomm.yangyinetwork.utils.Sort;
+import com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation;
+import com.asuscomm.yangyinetwork.consts.GAME_BOARD;
+import com.asuscomm.yangyinetwork.utils.BoardUtils;
+import com.asuscomm.yangyinetwork.utils.Clone2darray;
+import com.asuscomm.yangyinetwork.utils.PossibleNextStone;
+import com.asuscomm.yangyinetwork.utils.Sort;
 
 import java.util.ArrayList;
 import java.util.List;

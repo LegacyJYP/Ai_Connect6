@@ -1,16 +1,16 @@
-package main.java.com.asuscomm.yangyinetwork.ai.algorithms.domain;
+package com.asuscomm.yangyinetwork.ai.algorithms.domain;
 
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation;
-import main.java.com.asuscomm.yangyinetwork.consts.ENEMY_STONETYPE;
-import main.java.com.asuscomm.yangyinetwork.utils.Clone2darray;
-import main.java.com.asuscomm.yangyinetwork.utils.PossibleNextStone;
+import com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation;
+import com.asuscomm.yangyinetwork.consts.ENEMY_STONETYPE;
+import com.asuscomm.yangyinetwork.utils.Clone2darray;
+import com.asuscomm.yangyinetwork.utils.PossibleNextStone;
 
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.nextStonePairsByPolicy;
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD.X;
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD.Y;
+import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.nextStonePairsByPolicy;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.X;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.Y;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..

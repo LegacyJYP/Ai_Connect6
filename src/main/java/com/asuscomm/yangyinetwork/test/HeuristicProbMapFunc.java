@@ -1,14 +1,14 @@
-package main.java.com.asuscomm.yangyinetwork.test;
+package com.asuscomm.yangyinetwork.test;
 
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation;
-import main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD;
-import main.java.com.asuscomm.yangyinetwork.utils.PrintUtils;
+import com.asuscomm.yangyinetwork.ai.JYP.evaluation.Evaluation;
+import com.asuscomm.yangyinetwork.consts.GAME_BOARD;
+import com.asuscomm.yangyinetwork.utils.PrintUtils;
 
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.makeProbmapWithStonePairs;
-import static main.java.com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.nextStonePairsByPolicy;
+import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.makeProbmapWithStonePairs;
+import static com.asuscomm.yangyinetwork.ai.JYP.policy.Policy.nextStonePairsByPolicy;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..

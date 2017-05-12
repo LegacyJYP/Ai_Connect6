@@ -1,17 +1,17 @@
-package main.java.com.asuscomm.yangyinetwork.test;
+package com.asuscomm.yangyinetwork.test;
 
 
-import main.java.com.asuscomm.yangyinetwork.ai.JYP.AiJYPImpl;
-import main.java.com.asuscomm.yangyinetwork.ai.commons.Ai;
-import main.java.com.asuscomm.yangyinetwork.utils.PossibleNextStone;
+import com.asuscomm.yangyinetwork.ai.JYP.AiJYPImpl;
+import com.asuscomm.yangyinetwork.ai.commons.Ai;
+import com.asuscomm.yangyinetwork.utils.PossibleNextStone;
 
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD.BLACK_STONE;
-import static main.java.com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInStonePoints;
-import static main.java.com.asuscomm.yangyinetwork.utils.PrintUtils.printBoardWithNextStones;
-import static main.java.com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePoint;
-import static main.java.com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePoints;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.BLACK_STONE;
+import static com.asuscomm.yangyinetwork.utils.ChooseRandomly.chooseRandomlyInStonePoints;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printBoardWithNextStones;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePoint;
+import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePoints;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..

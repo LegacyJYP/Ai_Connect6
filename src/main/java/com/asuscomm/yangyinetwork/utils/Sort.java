@@ -1,7 +1,7 @@
-package main.java.com.asuscomm.yangyinetwork.utils;
+package com.asuscomm.yangyinetwork.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.asuscomm.yangyinetwork.consts.CONSTS;
+import com.asuscomm.yangyinetwork.consts.CONSTS;
 
 import java.util.ArrayList;
 import java.util.List;

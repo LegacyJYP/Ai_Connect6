@@ -1,7 +1,7 @@
-package main.java.com.asuscomm.yangyinetwork.test.alphabeta;
+package com.asuscomm.yangyinetwork.test.alphabeta;
 
-import main.java.com.asuscomm.yangyinetwork.ai.algorithms.domain.BaseTree;
-import main.java.com.asuscomm.yangyinetwork.ai.algorithms.domain.TreeForAlphabeta;
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.BaseTree;
+import com.asuscomm.yangyinetwork.ai.algorithms.domain.TreeForAlphabeta;
 
 import java.util.List;
 

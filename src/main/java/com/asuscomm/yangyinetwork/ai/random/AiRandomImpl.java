@@ -1,4 +1,4 @@
-package main.java.com.asuscomm.yangyinetwork.ai.random;
+package com.asuscomm.yangyinetwork.ai.random;
 
 /**
  * Created by jaeyoung on 2017. 5. 7..

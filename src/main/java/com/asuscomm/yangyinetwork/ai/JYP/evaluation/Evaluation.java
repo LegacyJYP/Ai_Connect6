@@ -1,15 +1,15 @@
-package main.java.com.asuscomm.yangyinetwork.ai.JYP.evaluation;
+package com.asuscomm.yangyinetwork.ai.JYP.evaluation;
 
-import main.java.com.asuscomm.yangyinetwork.ai.JYP.EverySequences;
-import main.java.com.asuscomm.yangyinetwork.ai.JYP.Sequence;
+import com.asuscomm.yangyinetwork.ai.JYP.EverySequences;
+import com.asuscomm.yangyinetwork.ai.JYP.Sequence;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.java.com.asuscomm.yangyinetwork.consts.ENEMY_STONETYPE.ENEMY_STONETYPE_INCLUDE_NONE;
-import static main.java.com.asuscomm.yangyinetwork.consts.GAME_BOARD.*;
+import static com.asuscomm.yangyinetwork.consts.ENEMY_STONETYPE.ENEMY_STONETYPE_INCLUDE_NONE;
+import static com.asuscomm.yangyinetwork.consts.GAME_BOARD.*;
 
 /**
  * Created by jaeyoung on 2017. 5. 10..
