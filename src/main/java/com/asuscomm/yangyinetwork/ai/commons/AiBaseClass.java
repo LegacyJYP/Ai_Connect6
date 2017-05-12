@@ -15,6 +15,7 @@ import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePointPairs;
 @Slf4j
 public abstract class AiBaseClass implements Ai, Runnable {
     private long startTime;
+    private Ai.OnSolutionListener mListener;
     protected int[][] currentOptimal;
 
     protected int stoneType;
@@ -35,13 +36,19 @@ public abstract class AiBaseClass implements Ai, Runnable {
     }
 
     public void findSolution(int[][] board, int remainStones, Ai.OnSolutionListener listener) {
+        this.terminate = false;
         this.board = board;
-        setSolution(choosePairRandomlyInBoard(board));
         tic();
+        this.mListener = listener;
         this.remainStones = remainStones;
         this.findSolThread = new Thread(this);
         this.findSolThread.start();
         while(true) {
+            if(this.terminate) {
+                log.info("AiBaseClass/findSolution: terminatedByAi");
+                break;
+            }
+
             if(toc()> REAL_TIME_LIMITS) {
                 log.info("AiBaseClass/findSolution: REAL_TIME_LIMITS");
                 terminate();
@@ -53,10 +60,16 @@ public abstract class AiBaseClass implements Ai, Runnable {
                 e.printStackTrace();
             }
         }
-        listener.onSolution(this.currentOptimal, this.remainStones);
+        done();
+    }
+
+    protected void done() {
+        mListener.onSolution(this.currentOptimal, this.remainStones);
+        mListener = null;
     }
 
     protected void terminate() {
+        this.terminate = true;
         this.findSolThread.interrupt();
     }
 

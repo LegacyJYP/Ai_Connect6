@@ -47,6 +47,8 @@ public class AiJYPImpl extends AiBaseClass {
                     setSolution(stonePointPair);
 
                     if(presentDepth >= IterativeDeepening.MAXIMUM_DEPTH) {
+                        log.info("AiJYPImpl/run: IterativeDeepening done");
+                        done();
                         break;
                     }
                     presentDepth = presentDepth + 1;
@@ -59,7 +61,6 @@ public class AiJYPImpl extends AiBaseClass {
     public void terminate() {
         log.info("AiJYPImpl/terminate: terminate");
         super.terminate();
-        this.terminate = true;
         AlphaBetaForLoop.setTerminate(true);
     }
 }
