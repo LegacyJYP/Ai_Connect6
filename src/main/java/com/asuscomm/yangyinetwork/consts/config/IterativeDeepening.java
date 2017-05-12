@@ -5,5 +5,5 @@ package com.asuscomm.yangyinetwork.consts.config;
  */
 public interface IterativeDeepening {
     int START_DEPTH = 1;
-    int MAXIMUM_DEPTH = 100;
+    int MAXIMUM_DEPTH = 1;
 }
