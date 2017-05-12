@@ -4,6 +4,7 @@ package com.asuscomm.yangyinetwork.test;
 import com.asuscomm.yangyinetwork.ai.JYP.AiJYPImpl;
 import com.asuscomm.yangyinetwork.ai.commons.Ai;
 import com.asuscomm.yangyinetwork.utils.PossibleNextStone;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import static com.asuscomm.yangyinetwork.utils.PrintUtils.printStonePoints;
 /**
  * Created by jaeyoung on 2017. 5. 7..
  */
+@Slf4j
 public class AiTest {
     public static void main(String[] args) {
         int[][] board = new int[][]{
@@ -47,6 +49,7 @@ public class AiTest {
             public void onSolution(int[][] stonePointPair, int remainStones) {
                 printStonePoint(stonePointPair[0]);
                 printStonePoint(stonePointPair[1]);
+                log.info("AiTest/onSolution: ");
                 printBoardWithNextStones(board, stonePointPair, stoneType);
             }
         });

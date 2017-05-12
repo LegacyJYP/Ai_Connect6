@@ -67,8 +67,9 @@ public abstract class AiBaseClass implements Ai, Runnable {
     }
 
     protected void setSolution(int[][] stonePointPair) {
-        printBoardWithNextStones(board, stonePointPair, stoneType);
+        log.info("AiBaseClass/setSolution: ");
         printStonePointPairs(stonePointPair);
+//        printBoardWithNextStones(board, stonePointPair, stoneType);
         this.currentOptimal = stonePointPair;
     }
 }

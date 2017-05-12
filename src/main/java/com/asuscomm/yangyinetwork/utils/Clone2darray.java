@@ -16,6 +16,18 @@ public class Clone2darray {
         return result;
     }
 
+    public static int[][] clone2dzeros(int[][] arr) {
+        int row = arr.length;
+        int col = arr[0].length;
+        int[][] result = new int[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result[i][j] = 0;
+            }
+        }
+        return result;
+    }
+
     public static double[][] clone2darrayToDouble(int[][] arr) {
         int row = arr.length;
         int col = arr[0].length;

@@ -13,4 +13,7 @@ public interface GAME_BOARD {
     int X = 0;
     int Y = 1;
     int NUM_CONNECT = 6;
+
+    int EFFECTIVE_POSITION = 1;
+    int NONEFFECTIVE_POSITION = 0;
 }

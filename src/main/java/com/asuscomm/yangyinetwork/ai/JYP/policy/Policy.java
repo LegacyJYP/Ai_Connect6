@@ -11,7 +11,7 @@ import com.asuscomm.yangyinetwork.utils.Sort;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.asuscomm.yangyinetwork.ai.JYP.config.Policy.NEXT_STONE_PAIRS_THERSH_PERSENTAGE;
+import static com.asuscomm.yangyinetwork.consts.config.Policy.NEXT_STONE_PAIRS_THERSH_PERSENTAGE;
 
 /**
  * Created by jaeyoung on 2017. 5. 11..
@@ -19,7 +19,7 @@ import static com.asuscomm.yangyinetwork.ai.JYP.config.Policy.NEXT_STONE_PAIRS_T
 @Slf4j
 public class Policy {
     public static List<int[][]> nextStonePairsByPolicy(int[][] board, int stoneType) {
-        List<int[][]> possibleNextStonePairs = PossibleNextStone.possibleNextStonePair(board);
+        List<int[][]> possibleNextStonePairs = PossibleNextStone.effectiveNextStonePair(board);
         List<int[][]> filteredNextStonePairs = new ArrayList<int[][]>();
         List<Double> evals = new ArrayList<Double>();
 
@@ -44,7 +44,9 @@ public class Policy {
             filteredNextStonePairs.add(possibleNextStonePairs.get(idx));
 //            log.info("Policy/policy: possibleNextStonePairs=[{}], [{}] evals=[{}]",
 //                    possibleNextStonePairs.get(idx)[0], possibleNextStonePairs.get(idx)[1], evals.get(idx));
-        } // 1. 디버깅 2. CPP 3. 씨코드 참고 4. 정책망 가치망 고치기 5. 몬테카를로
+        } // 1. 디버깅-끝 2. CPP 3. 씨코드 참고 4. 정책망 가치망 고치기 5. 몬테카를로
+
+        log.info("Policy/nextStonePairsByPolicy: filteredNextStonePairs.size=[{}]",filteredNextStonePairs.size());
 
         return filteredNextStonePairs;
     }

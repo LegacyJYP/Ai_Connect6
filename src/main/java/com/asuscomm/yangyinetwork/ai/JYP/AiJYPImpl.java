@@ -5,7 +5,7 @@ import com.asuscomm.yangyinetwork.ai.algorithms.AlphaBetaForLoop;
 import com.asuscomm.yangyinetwork.ai.commons.AiBaseClass;
 import com.asuscomm.yangyinetwork.ai.algorithms.domain.Node;
 import lombok.extern.slf4j.Slf4j;
-import com.asuscomm.yangyinetwork.ai.JYP.config.IterativeDeepening;
+import com.asuscomm.yangyinetwork.consts.config.IterativeDeepening;
 import com.asuscomm.yangyinetwork.ai.algorithms.AlphaBeta;
 import com.asuscomm.yangyinetwork.consts.CONSTS;
 import com.asuscomm.yangyinetwork.utils.PrintUtils;
@@ -38,8 +38,8 @@ public class AiJYPImpl extends AiBaseClass {
                     rootNode.extendByEval(presentDepth);
                     log.info("AiJYPImpl/iterativeDeepeningSearch: [{}]", presentDepth);
                     Node bestNode = (Node) AlphaBeta.alphabeta(rootNode,0, -CONSTS.INF, CONSTS.INF, true, presentDepth);
-                    log.info("AiJYPImpl/run: bestNode");
-                    PrintUtils.printBoard(bestNode.getBoard());
+//                    log.info("AiJYPImpl/run: bestNode");
+//                    PrintUtils.printBoard(bestNode.getBoard());
                     if(this.terminate) {
                         break;
                     }
