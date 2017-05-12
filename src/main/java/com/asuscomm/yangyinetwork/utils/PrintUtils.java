@@ -24,7 +24,10 @@ public class PrintUtils {
         System.out.println(Arrays.toString(stonePoint));
     }
     public static void printStonePointPairs(int[][] stonePointPairs) {
-        log.info("AiBaseClass/setSolution: [{}], [{}]",""+ Arrays.toString(stonePointPairs[0]), ""+Arrays.toString(stonePointPairs[1]));
+        for (int i = 0; i < stonePointPairs.length; i++) {
+            log.info("AiBaseClass/setSolution: [{}]",""+ Arrays.toString(stonePointPairs[i]));
+        }
+
     }
 
     public static void printBoard(int[][] board) {
