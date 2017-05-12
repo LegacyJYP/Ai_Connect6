@@ -25,7 +25,7 @@ public class AiJYPImpl extends AiBaseClass {
     @Override
     public void run() {
         {
-            log.info("AiJYPImpl/run: ");
+            log.info("AiJYPImpl/run: remainStones=[{}]",this.remainStones);
 
             if (this.remainStones == 1) {
                 setSolution(new int[][]{chooseRandomlyInBoard(board)});

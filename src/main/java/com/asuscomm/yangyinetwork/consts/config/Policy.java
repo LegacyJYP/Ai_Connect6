@@ -5,4 +5,5 @@ package com.asuscomm.yangyinetwork.consts.config;
  */
 public interface Policy {
     double NEXT_STONE_PAIRS_THERSH_PERSENTAGE = 0.01;
+    int NEXT_STONE_PAIRS_THERSH_NUMBER = 50;
 }

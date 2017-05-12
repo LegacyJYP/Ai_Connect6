@@ -11,6 +11,7 @@ import com.asuscomm.yangyinetwork.utils.Sort;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.asuscomm.yangyinetwork.consts.config.Policy.NEXT_STONE_PAIRS_THERSH_NUMBER;
 import static com.asuscomm.yangyinetwork.consts.config.Policy.NEXT_STONE_PAIRS_THERSH_PERSENTAGE;
 
 /**
@@ -39,14 +40,16 @@ public class Policy {
         List<Integer> sorted = null;
         sorted = Sort.sortedIndex(evals);
 
-        for (int i = 0; i < possibleNextStonePairs.size() * NEXT_STONE_PAIRS_THERSH_PERSENTAGE; i++) {
+        int numberOfFilteredPairs = Math.min((int)(possibleNextStonePairs.size()*NEXT_STONE_PAIRS_THERSH_PERSENTAGE), NEXT_STONE_PAIRS_THERSH_NUMBER);
+
+        for (int i = 0; i < numberOfFilteredPairs; i++) {
             int idx = sorted.get(i);
             filteredNextStonePairs.add(possibleNextStonePairs.get(idx));
 //            log.info("Policy/policy: possibleNextStonePairs=[{}], [{}] evals=[{}]",
 //                    possibleNextStonePairs.get(idx)[0], possibleNextStonePairs.get(idx)[1], evals.get(idx));
         } // 1. 디버깅-끝 2. CPP 3. 씨코드 참고 4. 정책망 가치망 고치기 5. 몬테카를로
 
-        log.info("Policy/nextStonePairsByPolicy: filteredNextStonePairs.size=[{}]",filteredNextStonePairs.size());
+        log.info("Policy/nextStonePairsByPolicy: numberOfFilteredPairs=[{}]",numberOfFilteredPairs);
 
         return filteredNextStonePairs;
     }
