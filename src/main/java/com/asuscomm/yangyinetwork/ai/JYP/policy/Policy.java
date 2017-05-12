@@ -11,6 +11,8 @@ import com.asuscomm.yangyinetwork.utils.Sort;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.asuscomm.yangyinetwork.ai.JYP.config.Policy.NEXT_STONE_PAIRS_THERSH_PERSENTAGE;
+
 /**
  * Created by jaeyoung on 2017. 5. 11..
  */
@@ -37,7 +39,7 @@ public class Policy {
         List<Integer> sorted = null;
         sorted = Sort.sortedIndex(evals);
 
-        for (int i = 0; i < possibleNextStonePairs.size() * main.java.com.asuscomm.yangyinetwork.ai.JYP.config.Policy.NEXT_STONE_PAIRS_THERSH_PERSENTAGE; i++) {
+        for (int i = 0; i < possibleNextStonePairs.size() * NEXT_STONE_PAIRS_THERSH_PERSENTAGE; i++) {
             int idx = sorted.get(i);
             filteredNextStonePairs.add(possibleNextStonePairs.get(idx));
 //            log.info("Policy/policy: possibleNextStonePairs=[{}], [{}] evals=[{}]",
